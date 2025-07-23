@@ -15,6 +15,12 @@ run/main_scene="uid://dkqwtr4rnmqrm"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Sceneswitcher="*res://scripts/SceneSwitcher/Sceneswitcher.tscn"
+ParticleManager="*res://scripts/ParticleManager/ParticleManager.tscn"
+Audiomanager="*res://scripts/Audio/Audiomanager.tscn"
+
 [display]
 
 window/size/viewport_width=1920
