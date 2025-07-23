@@ -3,7 +3,7 @@ using System;
 
 public partial class ParticleManager : Node
 {
-	[Export] GpuParticles2D[] gpuParticles2D;
+	[Export] GpuParticles2D[] particleReferences;
 
 	public static ParticleManager instance;
     public override void _Ready()
@@ -11,8 +11,8 @@ public partial class ParticleManager : Node
         instance = this;
     }
 
-    public void addOneShotParticle(int id, Vector2 position, Node obj){
-		GpuParticles2D g = (GpuParticles2D)gpuParticles2D[id].Duplicate();
+    public void AddOneShotParticle(int id, Vector2 position, Node obj){
+		GpuParticles2D g = (GpuParticles2D)particleReferences[id].Duplicate();
 		g.OneShot = true;
 		g.Position = position;
 		obj.AddChild(g);
@@ -20,7 +20,7 @@ public partial class ParticleManager : Node
 		g.Connect("finished", new Callable(g, MethodName.QueueFree));
 	}
 
-	public GpuParticles2D getParticle(int id){
-		return gpuParticles2D[id];
+	public GpuParticles2D GetParticleReference(int id){
+		return particleReferences[id];
 	}
 }
