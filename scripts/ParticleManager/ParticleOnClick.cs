@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Runtime.InteropServices;
 
-public partial class ParticleRunner : Node2D
+public partial class ParticleOnClick : Node2D
 {
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -12,11 +12,11 @@ public partial class ParticleRunner : Node2D
 			ParticleManager.instance.AddOneShotParticle(0, GetGlobalMousePosition(), this);
 		}
 	}
-	public void onSliderChanged(float value){
+	public void OnSliderChanged(float value){
 		// GD.Print("Value: " + value + " gravity: " + ParticleManager.instance.getParticle(0).ProcessMaterial.Get("gravity"));
 		ParticleManager.instance.GetParticleReference(0).ProcessMaterial.Set("gravity", new Vector3(0, value, 0));
 	}
-	public void onSliderChangedLifetime(float value){
+	public void OnSliderChangedLifetime(float value){
 		// GD.Print(ParticleManager.instance.getParticle(0).ProcessMaterial.Get("lifetime"));
 		ParticleManager.instance.GetParticleReference(0).Lifetime = value;
 	}
