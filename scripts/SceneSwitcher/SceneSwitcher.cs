@@ -12,8 +12,15 @@ public partial class SceneSwitcher : Node
 		instance = this;
 	}
 
-	public void SwitchScene(int loadOrder){
+	public void SwitchScene(int loadOrder)
+	{
 		GetTree().ChangeSceneToPacked(scenes[loadOrder]);
+	}
+	
+	public void SwitchScene(string sceneName){
+		GetTree().ChangeSceneToPacked(
+			scenes[Array.FindIndex(scenes, s => s.ResourceName == sceneName)]
+		);
 	}
 
 }
